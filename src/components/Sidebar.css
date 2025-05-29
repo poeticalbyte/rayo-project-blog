@@ -1,0 +1,61 @@
+.sidebar-profile-icon-container {
+  padding-top: 10px;
+}
+
+.sidebar-profile-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #4e4e4e;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-title {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #000000;
+}
+
+.project-authors {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #000000 !important;
+}
+
+.sidebar-nav-list-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #000000;
+  margin-top: 1rem;
+}
+
+.sidebar-nav-link {
+  color: #212529;
+  border-bottom: 1px solid #000000 !important;
+  padding: 0.65rem 1rem;
+  text-align: left;
+  border-radius: 0 !important;
+  font-size: 0.95rem;
+}
+
+.sidebar-nav-link:last-child {
+  border-bottom: none !important;
+}
+
+.sidebar-nav-link:hover,
+.sidebar-nav-link.active {
+  background-color: #c7c7c7;
+  color: #007bff;
+}
+
+.nav {
+  background-color: #202020;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255) !important;
+}
