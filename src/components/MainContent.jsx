@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './MainContent.css';
-import logo from '../assets/rayologotipo.png';
+import logo from '../assets/rayologotipo.png'; // Este logo aún se importa aquí porque es específico de Sidebar
 
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
@@ -13,15 +13,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const MainContent = ({ activeContent }) => {
   const [numPages, setNumPages] = useState(null);
-  // Eliminamos pageNumber y setPageNumber si queremos scroll continuo.
-  // Si prefieres navegación por botones, mantenlos y la lógica de los botones.
   const [containerWidth, setContainerWidth] = useState(null);
 
   const pdfContainerRef = useRef(null);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
-    // Ya no es necesario setPageNumber(1) si vamos a renderizar todas las páginas.
   }
 
   useEffect(() => {
@@ -46,6 +43,7 @@ const MainContent = ({ activeContent }) => {
   }
 
   const renderParagraphContent = (paragraphText, inlineImages, inlinePdfs) => {
+    // Expresión regular mejorada para capturar correctamente las partes
     const parts = paragraphText.split(/(\[IMAGEN_PARRAFO:.*?\])|(\[PDF:.*?\])/g);
 
     return parts.map((part, i) => {
@@ -53,13 +51,14 @@ const MainContent = ({ activeContent }) => {
 
       // --- Lógica para IMAGEN ---
       if (part.startsWith('[IMAGEN_PARRAFO:')) {
-        const imagePath = part.substring(16, part.length - 1);
-        const imageData = inlineImages && inlineImages[imagePath];
-        if (imageData) {
+        const imageKey = part.substring(16, part.length - 1); // Obtenemos la clave original (e.g., '../assets/ventajasrayo.png')
+        const imageData = inlineImages && inlineImages[imageKey]; // Buscamos en el objeto inlineImages
+
+        if (imageData && imageData.src) { // Verificamos que imageData y su propiedad src existan
           return (
             <img
               key={i}
-              src={imagePath}
+              src={imageData.src} // Usamos la variable importada que está en imageData.src
               alt={imageData.alt || 'Imagen en el párrafo'}
               className={imageData.className || 'inline-image'}
             />
@@ -69,10 +68,10 @@ const MainContent = ({ activeContent }) => {
 
       // --- Lógica para PDF ---
       if (part.startsWith('[PDF:')) {
-        const pdfPath = part.substring(5, part.length - 1);
-        const pdfData = inlinePdfs && inlinePdfs[pdfPath];
+        const pdfKey = part.substring(5, part.length - 1); // Obtenemos la clave original (e.g., '../assets/scrum.pdf')
+        const pdfData = inlinePdfs && inlinePdfs[pdfKey]; // Buscamos en el objeto inlinePdfs
 
-        if (pdfData) {
+        if (pdfData && pdfData.src) { // Verificamos que pdfData y su propiedad src existan
           return (
             <div
               key={i}
@@ -82,48 +81,22 @@ const MainContent = ({ activeContent }) => {
             >
               {containerWidth && (
                 <Document
-                  file={pdfPath}
+                  file={pdfData.src} // Usamos la variable importada que está en pdfData.src
                   onLoadSuccess={onDocumentLoadSuccess}
                   error="No se pudo cargar el PDF."
                   loading="Cargando PDF..."
-                  // Añade un contenedor para el scroll si lo necesitas, o el mismo Document puede scrollear
-                  // La clase 'react-pdf__Document' generada por react-pdf a menudo maneja el desbordamiento
                 >
                   {
-                    // Itera para renderizar todas las páginas
                     Array.from(new Array(numPages), (el, index) => (
                       <Page
                         key={`page_${index + 1}`}
                         pageNumber={index + 1}
-                        width={containerWidth} // Mantén el ancho para que el texto se vea bien
-                        // Opcional: scale={1.5}
+                        width={containerWidth}
                       />
                     ))
                   }
                 </Document>
               )}
-              {/* Opcional: Puedes quitar estos controles de navegación si prefieres el scroll continuo */}
-              {/*
-              {numPages > 1 && (
-                <div className="pdf-navigation">
-                  <button
-                    disabled={pageNumber <= 1}
-                    onClick={() => setPageNumber(prevPageNumber => prevPageNumber - 1)}
-                  >
-                    Anterior
-                  </button>
-                  <p>
-                    Página {pageNumber} de {numPages}
-                  </p>
-                  <button
-                    disabled={pageNumber >= numPages}
-                    onClick={() => setPageNumber(prevPageNumber => prevPageNumber + 1)}
-                  >
-                    Siguiente
-                  </button>
-                </div>
-              )}
-              */}
             </div>
           );
         }
@@ -136,6 +109,7 @@ const MainContent = ({ activeContent }) => {
   return (
     <div className="text-center">
       <div className="large-image-placeholder mb-4">
+        {/* activeContent.image ya contendrá la URL correcta procesada por el bundler */}
         {activeContent.image && (
           <img src={activeContent.image} alt={activeContent.title} className="large-image-actual-image" />
         )}
