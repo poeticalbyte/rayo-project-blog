@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import './Sidebar.css';
-import logo from '/rayo-project-blog/assets/rayologotipo.png';
+import logo from '../assets/rayologotipo.png';
 
 const Sidebar = ({ contentItems, onSelectContent, activeContentId }) => {
   return (
