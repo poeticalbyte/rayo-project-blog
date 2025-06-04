@@ -2,7 +2,7 @@ const contentData = [
   {
     id: 'bio-rayo',
     title: '🧩 ¿Cómo se formó el proyecto Rayo?',
-    image: 'public/assets/books.jpeg',
+    image: '../public/assets/books.jpeg',
     paragraphs: [
       "En 2024, Juan Ramírez y Daniel Yepez comenzaron sus estudios en Ingeniería de Sistemas en la Universidad de Nariño, sede Ipiales. Desde el inicio, compartieron una gran pasión por la computación y el aprendizaje, lo que los llevó a colaborar en distintos proyectos académicos. En 2025, durante la asignatura de Ingeniería de Software I, la docente Gloria Thomé les asignó la tarea de desarrollar un proyecto de software que resolviera un problema real.",
       "Tras analizar diversas problemáticas en su entorno, identificaron la necesidad de mejorar los procesos de aprendizaje y evaluación en la educación. Convencidos del potencial de la Inteligencia Artificial, decidieron crear un software que optimizara la enseñanza y permitiera una experiencia más personalizada para estudiantes y docentes. Así nació RAYO, una herramienta diseñada para revolucionar la educación mediante IA.",
@@ -12,7 +12,7 @@ const contentData = [
   {
     id: 'rayo-logo-concept',
     title: '✨ Les presentamos el logotipo de RAYO, nuestro proyecto de software.',
-    image: 'public/assets/rayoconcept.png',
+    image: '../public/assets/rayoconcept.png',
     paragraphs: [
       "¿Cuál es el significado detrás de sus colores?",
       "Amarillo claro (#fdf4b4): Representa creatividad, optimismo, claridad y enfoque. Es un color que inspira energía positiva y puede asociarse con la innovación y la facilidad de uso del software.",
@@ -41,11 +41,11 @@ const contentData = [
     title: '📈 ¿Qué ventajas tendría este software?"',
     image: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     paragraphs: [
-      "[IMAGEN_PARRAFO:public/assets/ventajasrayo.png]",
+      "[IMAGEN_PARRAFO:../public/assets/ventajasrayo.png]",
       "El software RAYO presenta varias ventajas: permite una creación y calificación eficiente de evaluaciones, ofrece personalización en los procesos de evaluación, y genera informes detallados para estudiantes y docentes. Además, su diseño facilita la interacción a través del lenguaje natural y proporciona interfaces intuitivas. Esta herramienta es una iniciativa de desarrollo con IA impulsada por la UDENAR."
     ],
     inlineImages: {
-      'public/assets/ventajasrayo.png': {
+      '../public/assets/ventajasrayo.png': {
         alt: 'Ventajas del proyecto',
         className: 'inline-paragraph-image' // Para estilos CSS específicos
       }
@@ -87,10 +87,10 @@ const contentData = [
     image: 'https://images.pexels.com/photos/5324968/pexels-photo-5324968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     paragraphs: [
       "Aquí presentamos el esquema general de la aplicación mostrando sus diferentes componentes:",
-      "[IMAGEN_PARRAFO:public/assets/esquema.jpg]",
+      "[IMAGEN_PARRAFO:../public/assets/esquema.jpg]",
     ],
     inlineImages: {
-      'public/assets/esquema.jpg': {
+      '../public/assets/esquema.jpg': {
         alt: 'Esquema del proyecto',
         className: 'inline-paragraph-image' // Para estilos CSS específicos
       }
@@ -101,11 +101,11 @@ const contentData = [
     title: '📑 Ficha de caracterización del proyecto.',
     image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     paragraphs: [
-      "[IMAGEN_PARRAFO:public/assets/ficha.jpg]",
+      "[IMAGEN_PARRAFO:../public/assets/ficha.jpg]",
       "El proyecto RAYO es liderado por Juan Camilo Ramírez Bastidas y Daniel Felipe Yepez Guerrero. Su objetivo principal es desarrollar una página web que genere exámenes de manera automática basándose en temáticas seleccionadas. Con un propósito claro de mejorar la eficiencia en el aprendizaje y las evaluaciones académicas, el proyecto tiene un tiempo estimado de ejecución de 4 a 10 meses, un presupuesto de $269.512.452, y su información está disponible en https://www.tumblr.com/rayoproject.",
     ],
     inlineImages: {
-      'public/assets/ficha.jpg': {
+      '../public/assets/ficha.jpg': {
         alt: 'Ficha de caracterización',
         className: 'inline-paragraph-image' // Para estilos CSS específicos
       }
@@ -116,11 +116,11 @@ const contentData = [
     title: '💸 Posibles fuentes de financiación.',
     image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     paragraphs: [
-      "[IMAGEN_PARRAFO:public/assets/finan.jpg]",
+      "[IMAGEN_PARRAFO:../public/assets/finan.jpg]",
       "El proyecto RAYO podría contar con el respaldo de la Universidad de Nariño, a través de su Dirección de Planeación y Desarrollo (Área Financiera y de Presupuesto), con la posible participación de su Directora de Planeación y Desarrollo. Asimismo, podría recibir apoyo del Ministerio de Educación, representado por el Viceministro, desde el Viceministerio de Educación Superior y la Dirección de Calidad de Educación.",
     ],
     inlineImages: {
-      'public/assets/finan.jpg': {
+      '../public/assets/finan.jpg': {
         alt: 'Ficha de posibles fuentes de financiación',
         className: 'inline-paragraph-image'
       }
@@ -131,10 +131,10 @@ const contentData = [
     title: '💸 SCRUM.',
     image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     paragraphs: [
-      "[PDF:public/assets/scrum.pdf]",
+      "[PDF:../public/assets/scrum.pdf]",
     ],
     inlinePdfs: {
-      'public/assets/scrum.pdf': {
+      '../public/assets/scrum.pdf': {
         title: 'SCRUM de RAYO',
         width: '100%', // Ancho del visualizador
         height: '500px' // Altura del visualizador
