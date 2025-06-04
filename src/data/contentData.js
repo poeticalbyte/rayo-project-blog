@@ -144,8 +144,8 @@ const contentData = [
   },
   {
     id: 'rayo-scrum',
-    title: '💸 SCRUM.',
-    image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Las URLs externas se mantienen
+    title: '🌱 SCRUM.',
+    image: 'https://images.pexels.com/photos/4623478/pexels-photo-4623478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Las URLs externas se mantienen
     paragraphs: [
       "[PDF:../assets/scrum.pdf]",
     ],
