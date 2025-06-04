@@ -1,4 +1,4 @@
-
+import { pdfjs } from 'react-pdf';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -32,5 +32,11 @@ function App() {
     </div>
   );
 }
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
+
 
 export default App;

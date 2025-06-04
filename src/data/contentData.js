@@ -126,6 +126,21 @@ const contentData = [
       }
     },
   },
+  {
+    id: 'rayo-scrum',
+    title: '💸 SCRUM.',
+    image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    paragraphs: [
+      "[PDF:src/assets/scrum.pdf]",
+    ],
+    inlinePdfs: {
+      'src/assets/scrum.pdf': {
+        title: 'SCRUM de RAYO',
+        width: '100%', // Ancho del visualizador
+        height: '500px' // Altura del visualizador
+      }
+    }
+  },
 ]
 
 export default contentData;
