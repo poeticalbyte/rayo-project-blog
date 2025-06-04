@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './MainContent.css';
-import logo from '/REPO_NAME/assets/rayologotipo.png';
+import logo from '/rayo-project-blog/assets/rayologotipo.png';
 
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
