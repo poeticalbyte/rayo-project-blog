@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,10 +8,11 @@ import './App.css';
 import contentData from './data/contentData.js';
 
 function App() {
-  const [activeContentId, setActiveContentId] = useState(contentData[0].id);
+  const initialContentId = contentData.length > 0 ? contentData[0].id : null;
+  const [activeContentId, setActiveContentId] = useState(initialContentId);
 
   const getActiveContent = () => {
-    return contentData.find(item => item.id === activeContentId);
+    return contentData.find(item => item.id === activeContentId) || null;
   };
 
   return (

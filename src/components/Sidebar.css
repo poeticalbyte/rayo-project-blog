@@ -29,13 +29,13 @@
 .sidebar-nav-list-wrapper {
   flex-grow: 1;
   overflow-y: auto;
-  border: 1px solid #000000;
+  border: 1px solid #4e4e4e;
   margin-top: 1rem;
 }
 
 .sidebar-nav-link {
   color: #212529;
-  border-bottom: 1px solid #000000 !important;
+  border-bottom: 1px solid #4e4e4e !important;
   padding: 0.65rem 1rem;
   text-align: left;
   border-radius: 0 !important;

@@ -1,7 +1,7 @@
 .large-image-placeholder {
   width: 100%;
   max-width: 670px;
-  height: 378px;
+  height: 500px;
   background-color: #000000;
   margin-left: auto;
   margin-right: auto;
@@ -44,7 +44,7 @@
 .main-title {
   font-weight: bold;
   color: #e4e4e4;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 1.5rem !important;
 }
 
@@ -52,8 +52,25 @@
   text-align: justify !important;
   line-height: 1.7;
   color: #d2d0c7;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   max-width: 700px;
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.inline-image {
+  max-width: 100%; /* Asegura que la imagen no se desborde */
+  height: auto;    /* Mantiene la proporción de la imagen */
+  display: block;  /* Para que ocupe su propia línea */
+  margin: 15px auto; /* Espaciado y centrado */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Si usas 'inline-paragraph-image' para estilos más específicos: */
+.inline-paragraph-image {
+  max-width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ddd;
 }
