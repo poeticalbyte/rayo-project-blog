@@ -1,101 +1,132 @@
+.main-content-container {
+    position: relative; /* Essential for positioning the pseudo-element */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Remove background-image, background-size, etc. from here */
+    /* Remove opacity from here */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+}
+
+.main-content-container::before {
+    content: ''; /* Required for pseudo-elements to render */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/cambio.png'); /* Apply background image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Apply opacity only to the background image */
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+/* Your other existing styles remain the same */
+
 .large-image-placeholder {
-  width: 100%;
-  max-width: 670px;
-  height: 500px;
-  background-color: #000000;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #000000;
-  overflow: hidden;
+    width: 100%;
+    max-width: 670px;
+    height: 500px;
+    background-color: #000000;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    overflow: hidden;
 }
 
 .large-image-actual-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .main-profile-icon-container {
-  margin-bottom: 1rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .main-profile-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #000000;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .profile-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .main-title {
-  font-weight: bold;
-  color: #e4e4e4;
-  font-size: 3rem;
-  margin-bottom: 1.5rem !important;
+    font-weight: bold;
+    color: #e4e4e4;
+    font-size: 3rem;
+    margin-bottom: 1.5rem !important;
 }
 
 .main-text {
-  text-align: justify !important;
-  line-height: 1.7;
-  color: #d2d0c7;
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
+    text-align: justify !important;
+    line-height: 1.7;
+    color: #d2d0c7;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .inline-image {
-  max-width: 100%; /* Asegura que la imagen no se desborde */
-  height: auto;    /* Mantiene la proporción de la imagen */
-  display: block;  /* Para que ocupe su propia línea */
-  margin: 15px auto; /* Espaciado y centrado */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Si usas 'inline-paragraph-image' para estilos más específicos: */
 .inline-paragraph-image {
-  max-width: 80%;
-  margin: 20px auto;
-  border: 1px solid #ddd;
+    max-width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
 }
-
-/* ... estilos existentes para imágenes ... */
 
 .inline-pdf-viewer-container {
-  margin: 20px auto;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Antes tenías overflow: hidden;, cámbialo o quítalo */
-  overflow: auto; /* Permite el scroll si el contenido es más grande que el contenedor */
-  width: 100%;
-  max-width: 700px;
-  height: auto; /* O puedes poner un height fijo y overflow: auto */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* ...restos de tus estilos... */
-
-/* Asegúrate de que react-pdf__Document (que es generado por la librería) también tenga scroll */
 .react-pdf__Document {
-  width: 100%; /* Ocupa el ancho completo de su padre */
-  /* react-pdf ya suele poner overflow: auto; pero si tienes problemas, puedes forzarlo aquí */
-  /* overflow: auto; */
+    width: 100%;
+}
+
+.react-pdf__Page {
+    width: 100% !important; /* Forces the page to take full width */
+    height: auto !important; /* Maintains aspect ratio */
+}
+
+.react-pdf__Page canvas {
+    width: 100% !important;
+    height: auto !important;
 }

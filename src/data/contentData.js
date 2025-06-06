@@ -8,7 +8,9 @@ import esquemaImage from '../assets/esquema.jpg';
 import fichaImage from '../assets/ficha.jpg';
 import finanImage from '../assets/finan.jpg';
 import scrumPdf from '../assets/scrum.pdf';
-
+import i1 from '../assets/i1.png';
+import i2 from '../assets/i2.png';
+import uml from '../assets/uml.jpg';
 
 const contentData = [
   {
@@ -143,8 +145,52 @@ const contentData = [
     },
   },
   {
+    id: 'rayo-uml',
+    title: '📐 Consulta UML.',
+    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Las URLs externas se mantienen
+    paragraphs: [
+      "📖 Diagama de clases.",
+      "¿Qué es UML?",
+      "El Lenguaje Unificado de Modelado (UML, por sus siglas en inglés Unified Modeling Lenguaje) es el estándar más utilizado para visualizar, especificar, construir y documentar sistemas software complejos. UML fue desarrollado y estandarizado por el Object Management Group (OMG) con el fin de ofrecer una notación gráfica común que facilite la comunicación entre analistas, diseñadores y desarrolladores de distintos ámbitos y tecnologías.",
+      "¿En qué consiste UML?",
+      "UML se compone de un conjunto de diagramas y elementos de modelo (clases, actores,componentes, nodos, etc.) que cubren dos grandes aspectos de un sistema:",
+      "Estructura estática",
+      "- Diagramas de clases: muestran clases, atributos, operaciones y sus relaciones.",
+      "- Diagramas de componentes: agrupan módulos o servicios y sus dependencias.",
+      "- Diagramas de despliegue: representan la distribución física de software en hardware.",
+      "- Diagramas de paquetes, objetos y estructuras compuestas, entre otros.",
+      "Comportamiento dinámico",
+      "- Diagramas de casos de uso: describen las interacciones usuario-sistema (actores y escenarios).",
+      "- Diagramas de secuencia y colaboración: modelan el flujo de mensajes entre objetos a lo largo del tiempo.",
+      "- Diagramas de actividades y de estados: ilustran flujos de procesos y ciclos de vida de objetos.",
+      "- Diagramas de interacción general y temporización, etc.",
+      "Cada diagrama emplea símbolos estandarizados (cajas, flechas, conectores) para capturar distintos puntos de vista del sistema, desde la visión de negocio hasta los detalles de implementación.",
+      "A continuación, una representación en diagrama UML del software de RAYO:",
+      "[IMAGEN_PARRAFO:../assets/uml.jpg]",
+    ],
+    inlineImages: {
+      '../assets/uml.jpg': { // La clave sigue siendo la ruta
+        alt: 'Ficha de posibles fuentes de financiación',
+        className: 'inline-paragraph-image',
+        src: uml // Añade la referencia a la variable importada
+      }
+    },
+  },
+  {
+    id: 'rayo-videos',
+    title: '📺 Vídeos relacionados.',
+    image: 'https://images.pexels.com/photos/4144228/pexels-photo-4144228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    paragraphs: [
+      "- TEDx Talks. (2023, 27 noviembre). IA en educación: Del miedo a la oportunidad | María Agustina Ibañez | TEDxUTNCórdoba [Vídeo]. YouTube. https://www.youtube.com/watch?v=MZhKDt86PX8",
+      "- TEDx Talks. (2025, 8 enero). La inteligencia artificial y la educación | Sang Gunn Yoo Park | TEDxUISRAEL [Vídeo]. YouTube. https://www.youtube.com/watch?v=r23rNosmve0",
+      "- DW Español. (2024, 21 diciembre). La IA en la educación: ¿mejora o perjudica el aprendizaje? [Vídeo]. YouTube. https://www.youtube.com/watch?v=Pka3NixwYmA",
+      "- Aprendemos Juntos 2030. (2020, 7 octubre). Cómo la inteligencia artificial ayudará a los profesores. Kai-Fu Lee, experto en IA [Vídeo]. YouTube. https://www.youtube.com/watch?v=9N1iYDHRZ14",
+      "- Canal UNTREF. (2025, 14 abril). IA y Educación Superior: el desafío de construir un modelo educativo soberano | Beatriz de Ansó [Vídeo]. YouTube. https://www.youtube.com/watch?v=taoMiPImQyc"
+    ]
+  },
+  {
     id: 'rayo-scrum',
-    title: '🌱 SCRUM.',
+    title: '🌱 SCRUM (ACTUALIZADO).',
     image: 'https://images.pexels.com/photos/4623478/pexels-photo-4623478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Las URLs externas se mantienen
     paragraphs: [
       "[PDF:../assets/scrum.pdf]",
@@ -157,6 +203,41 @@ const contentData = [
         src: scrumPdf // Añade la referencia a la variable importada
       }
     }
+  },
+  {
+    id: 'rayo-interfaces',
+    title: '📲 Interfaces.',
+    image: 'https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    paragraphs: [
+      "[IMAGEN_PARRAFO:../assets/i1.png]",
+      "[IMAGEN_PARRAFO:../assets/i2.png]",
+    ],
+    inlineImages: {
+      '../assets/i1.png': { // La clave sigue siendo la ruta para que `MainContent` la encuentre
+        alt: 'Ventajas del proyecto',
+        className: 'inline-paragraph-image',
+        src: i1 // Añade la referencia a la variable importada
+      },
+      '../assets/i2.png': { // La clave sigue siendo la ruta para que `MainContent` la encuentre
+        alt: 'Ventajas del proyecto',
+        className: 'inline-paragraph-image',
+        src: i2 // Añade la referencia a la variable importada
+      },
+    },
+  },
+  {
+    id: 'rayo-bibliografias',
+    title: '📚 Bibliografía.',
+    image: 'https://images.pexels.com/photos/1907785/pexels-photo-1907785.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    paragraphs: [
+      "- Pombo, C. (2023, 15 diciembre). ¿Cómo integrar a la inteligencia artificial en la educación de manera responsable? Enfoque Educación. https://blogs.iadb.org/educacion/es/inteligencia-artificial-educacion/",
+      "- Integración de la Inteligencia Artificial en la Educación superior: Desafíos y oportunidades. (s. f.). https://www.revistatransformar.cl/index.php/transformar/article/view/84/44",,
+      "- Aplicación de la Inteligencia Artificial (IA) en Educación: Los beneficios y limitaciones de la IA percibidos por el profesorado de educación primaria, educación secundaria y educación superior. (s. f.). https://revistas.um.es/reifop/article/view/577211/356891",
+      "- Incidencias de la inteligencia artificial en la educación. (2023, 23 junio). recimundo.com. Recuperado 5 de junio de 2025, de https://recimundo.com/index.php/es/article/view/2045/2555",
+      "- Futuro De La Inteligencia Artificial Para La Educación En Las Instituciones De Educación Superior. (2023, julio). http://scielo.sld.cu/pdf/rc/v19n93/1990-8644-rc-19-93-27.pdf",
+      "- Inteligencia artificial y sus implicaciones en la educación superior. (2019, 4 enero). http://www.scielo.org.pe/pdf/pyr/v7n2/a21v7n2.pdf",
+      "- ",
+    ]
   },
 ];
 

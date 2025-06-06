@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './MainContent.css';
-import logo from '../assets/rayologotipo.png'; // Este logo aún se importa aquí porque es específico de Sidebar
+import logo from '../assets/rayologotipo.png'; // Logo específico
 
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
@@ -13,7 +13,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const MainContent = ({ activeContent }) => {
   const [numPages, setNumPages] = useState(null);
-  const [containerWidth, setContainerWidth] = useState(null);
+  // const [containerWidth, setContainerWidth] = useState(null); // No longer strictly needed for Page width
 
   const pdfContainerRef = useRef(null);
 
@@ -21,10 +21,13 @@ const MainContent = ({ activeContent }) => {
     setNumPages(numPages);
   }
 
+  // You can still keep this useEffect if you need containerWidth for other purposes
+  // or for potential future responsive adjustments, but it's not needed for Page width
   useEffect(() => {
     const handleResize = () => {
       if (pdfContainerRef.current) {
-        setContainerWidth(pdfContainerRef.current.offsetWidth);
+        // If you need to log it or use it for other elements, keep this line
+        // setContainerWidth(pdfContainerRef.current.offsetWidth);
       }
     };
 
@@ -36,29 +39,27 @@ const MainContent = ({ activeContent }) => {
 
   if (!activeContent) {
     return (
-      <div className="text-center">
+      <div className="text-center main-content-container">
         <p className="main-text">Selecciona un elemento del menú.</p>
       </div>
     );
   }
 
   const renderParagraphContent = (paragraphText, inlineImages, inlinePdfs) => {
-    // Expresión regular mejorada para capturar correctamente las partes
     const parts = paragraphText.split(/(\[IMAGEN_PARRAFO:.*?\])|(\[PDF:.*?\])/g);
 
     return parts.map((part, i) => {
       if (!part) return null;
 
-      // --- Lógica para IMAGEN ---
       if (part.startsWith('[IMAGEN_PARRAFO:')) {
-        const imageKey = part.substring(16, part.length - 1); // Obtenemos la clave original (e.g., '../assets/ventajasrayo.png')
-        const imageData = inlineImages && inlineImages[imageKey]; // Buscamos en el objeto inlineImages
+        const imageKey = part.substring(16, part.length - 1);
+        const imageData = inlineImages && inlineImages[imageKey];
 
-        if (imageData && imageData.src) { // Verificamos que imageData y su propiedad src existan
+        if (imageData && imageData.src) {
           return (
             <img
               key={i}
-              src={imageData.src} // Usamos la variable importada que está en imageData.src
+              src={imageData.src}
               alt={imageData.alt || 'Imagen en el párrafo'}
               className={imageData.className || 'inline-image'}
             />
@@ -66,12 +67,11 @@ const MainContent = ({ activeContent }) => {
         }
       }
 
-      // --- Lógica para PDF ---
       if (part.startsWith('[PDF:')) {
-        const pdfKey = part.substring(5, part.length - 1); // Obtenemos la clave original (e.g., '../assets/scrum.pdf')
-        const pdfData = inlinePdfs && inlinePdfs[pdfKey]; // Buscamos en el objeto inlinePdfs
+        const pdfKey = part.substring(5, part.length - 1);
+        const pdfData = inlinePdfs && inlinePdfs[pdfKey];
 
-        if (pdfData && pdfData.src) { // Verificamos que pdfData y su propiedad src existan
+        if (pdfData && pdfData.src) {
           return (
             <div
               key={i}
@@ -79,24 +79,27 @@ const MainContent = ({ activeContent }) => {
               className="inline-pdf-viewer-container"
               style={{ height: pdfData.height || 'auto' }}
             >
-              {containerWidth && (
-                <Document
-                  file={pdfData.src} // Usamos la variable importada que está en pdfData.src
-                  onLoadSuccess={onDocumentLoadSuccess}
-                  error="No se pudo cargar el PDF."
-                  loading="Cargando PDF..."
-                >
-                  {
-                    Array.from(new Array(numPages), (el, index) => (
-                      <Page
-                        key={`page_${index + 1}`}
-                        pageNumber={index + 1}
-                        width={containerWidth}
-                      />
-                    ))
-                  }
-                </Document>
-              )}
+              {/* You can remove the containerWidth check here, as it's not strictly necessary for rendering */}
+              {/* If you pass width to Document, react-pdf will use it for all pages */}
+              <Document
+                file={pdfData.src}
+                onLoadSuccess={onDocumentLoadSuccess}
+                error="No se pudo cargar el PDF."
+                loading="Cargando PDF..."
+                // Consider adding a `width` prop here for the Document if you want a fixed width for all pages
+                // For dynamic width based on container, rely on CSS
+                // width={containerWidth} // <-- If you pass it here, it will apply to all pages
+              >
+                {Array.from(new Array(numPages), (el, index) => (
+                  <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1}
+                    // REMOVE THIS LINE: width={containerWidth}
+                    // The CSS `width: 100% !important;` on .react-pdf__Page
+                    // will now correctly control the width based on its parent container
+                  />
+                ))}
+              </Document>
             </div>
           );
         }
@@ -107,9 +110,8 @@ const MainContent = ({ activeContent }) => {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center main-content-container">
       <div className="large-image-placeholder mb-4">
-        {/* activeContent.image ya contendrá la URL correcta procesada por el bundler */}
         {activeContent.image && (
           <img src={activeContent.image} alt={activeContent.title} className="large-image-actual-image" />
         )}
