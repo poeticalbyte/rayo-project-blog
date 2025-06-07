@@ -10,6 +10,7 @@ import finanImage from '../assets/finan.jpg';
 import scrumPdf from '../assets/scrum.pdf';
 import i1 from '../assets/i1.png';
 import i2 from '../assets/i2.png';
+import i3 from '../assets/i3.png';
 import uml from '../assets/uml.jpg';
 
 const contentData = [
@@ -211,17 +212,23 @@ const contentData = [
     paragraphs: [
       "[IMAGEN_PARRAFO:../assets/i1.png]",
       "[IMAGEN_PARRAFO:../assets/i2.png]",
+      "[IMAGEN_PARRAFO:../assets/i3.png]",
     ],
     inlineImages: {
       '../assets/i1.png': { // La clave sigue siendo la ruta para que `MainContent` la encuentre
-        alt: 'Ventajas del proyecto',
+        alt: 'Login interface',
         className: 'inline-paragraph-image',
         src: i1 // Añade la referencia a la variable importada
       },
       '../assets/i2.png': { // La clave sigue siendo la ruta para que `MainContent` la encuentre
-        alt: 'Ventajas del proyecto',
+        alt: 'Student interface',
         className: 'inline-paragraph-image',
         src: i2 // Añade la referencia a la variable importada
+      },
+      '../assets/i3.png': { // La clave sigue siendo la ruta para que `MainContent` la encuentre
+        alt: 'Professor interface',
+        className: 'inline-paragraph-image',
+        src: i3 // Añade la referencia a la variable importada
       },
     },
   },
